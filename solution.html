@@ -1,42 +1,59 @@
 <html>
-<body bgcolor="#0000ff">
+<body bgcolor="#005A9C">
 
+<html>
+<head>
 <style>
-
-.st0 {
-  fill: #0491B7;
-}
-.st1 {
-  fill: #0491B7;
-}
-.st1:hover {
-  fill: red;
-  opacity: 0.5;
-}
-.st0:hover {
-  fill: red;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #808080;
 }
 
-text{
-  display:none;
-  fill:#fff;
-  font-size:2em;
-  font-family:sans-serif;
+li {
+  float: left;
+  border-right:1px solid #005A9C;
 }
 
-text.sub-text{
-  display:none;
-  fill:#fff;
-  font-size:0.8em;
-  font-family:sans-serif;
+li:last-child {
+  border-right: none;
 }
 
-g:hover > text{
-  display:block;
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
+li a:hover:not(.active) {
+  background-color: #005A9C;
+}
 
-<center><h1><font color="orange">Health Expidenture<font color="white"></font></h1></center>
+.active {
+  background-color: #005A9C;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="homepage.html">Home</a></li>
+  <li><a href="solution.html">Map of Data</a></li>
+  <li><a href="justification.html">Justification</a></li>
+  <li><a href="data3.js">Raw Data (JSON)</a></li>
+  <li style="float:right"><a href="about.html">About Health Expenditure</a></li>
+</ul>
+
+</body>
+</html>
+
+
+
+<center><h1><font color="white">Health Expenditure as a percent of GDP<font color="white"></font></h1></center>
 
 <!-- http://www.smashingmagazine.com/2015/09/making-svg-maps-from-natural-earth-data/ -->
 <div class="container">
@@ -48,8 +65,8 @@ g:hover > text{
   width: 60%;
   margin: 0 auto;
 }
-path {fill: green; stroke: orange;}
-path:hover {fill: orange;}
+path {fill: #4b4d60; stroke: black;}
+path:hover {fill: lightgrey;}
 </style>
 <script src="data3.js"></script>
 <script>
@@ -62,7 +79,7 @@ path:hover {fill: orange;}
 				console.log(data[j]);
     			if(data[j].dims.COUNTRY == this.getAttribute('data-name')){
     				var val = data[j].Value;
-    				alert('You clicked on ' + this.getAttribute('data-name') + ' and ' + ' the ' + ' percent ' + ' of ' + ' their ' + ' GDP ' + ' spent ' +' on ' + ' health expenditure ' + ' is ' + val + ' in ' + ' 2015 ');
+    				alert('You clicked on ' + this.getAttribute('data-name') + ' and the percent of their GDP spent on Health Expenditure is ' + val + '% in 2015.');
     				break;
     			}
   			}
@@ -90,14 +107,14 @@ form.example input[type=text] {
   border: 1px solid grey;
   float: left;
   width: 80%;
-  background: #f1f1f1;
+  background: #808080;
 }
 
 form.example button {
   float: left;
   width: 20%;
   padding: 10px;
-  background: #2196F3;
+  background: #808080;
   color: white;
   font-size: 17px;
   border: 1px solid grey;
@@ -116,31 +133,6 @@ form.example::after {
 }
 
 </style>
-</head>
-<body>
 
-<h2>Search Button</h2>
-
-<p>Full width:</p>
-<form class="example" action="/action_page.php">
-  <input type="text" placeholder="Search.." name="search">
-  <button type="submit"><i class="fa fa-search"></i></button>
-</form>
-<style>
-#info-box {
-  display: none;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 1;
-  background-color: #ffffff;
-  border: 2px solid #BF0A30;
-  border-radius: 5px;
-  padding: 5px;
-  font-family: arial;
-}
-d="HI"data-info="<div>COUNTRY: CANADa</div>"
-</style>
-</style>
 
 </html>
